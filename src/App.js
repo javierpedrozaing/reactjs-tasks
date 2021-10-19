@@ -67,7 +67,7 @@ function App(props) {
   React.useEffect(() => { 
     
     setTimeout(() => {
-      (defaultTasks) ? setLoading(false) : setLoading(true); 
+      (defaultTasks) ? setLoading(false) : setLoading(true);  
       let savedTasks = localStorage.getItem("myTasks");    
       if (!savedTasks){
         localStorage.setItem("myTasks", []);
