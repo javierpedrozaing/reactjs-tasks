@@ -67,14 +67,13 @@ function App(props) {
   React.useEffect(() => { 
     
     setTimeout(() => {
+      (defaultTasks) ? setLoading(false) : setLoading(true); 
       let savedTasks = localStorage.getItem("myTasks");    
-
       if (!savedTasks){
         localStorage.setItem("myTasks", []);
       } else {    
           defaultTasks = JSON.parse(savedTasks);
-          setTasks(defaultTasks);
-          (defaultTasks) ? setLoading(false) : setLoading(true);    
+          setTasks(defaultTasks);   
       }
     }, 1500);
   
