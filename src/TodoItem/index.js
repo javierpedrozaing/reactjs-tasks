@@ -17,7 +17,7 @@ function TodoItem(props) {
         X
       </span>
     </li>
-  );
+  )
 }
 
-export { TodoItem };
+export { TodoItem }

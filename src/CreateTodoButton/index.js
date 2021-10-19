@@ -10,7 +10,7 @@ function CreateTodoButton(props) {
         <button className="CreateTodoButton"
         onClick={newItem}
         >+</button>
-    );
+    )
 }
 
-export { CreateTodoButton };
+export { CreateTodoButton }

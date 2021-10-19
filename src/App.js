@@ -18,7 +18,7 @@ function App(props) {
   const [showModal, setShowModal] = React.useState(false);
   const [searchValue, setSearchvalue] = React.useState('');
 
-  const completedTasks = tasks.filter(task => !!task.completed).length
+  const completedTasks = tasks.filter(task => !!task.completed).length;
   const total = tasks.length;
 
   let searchedTasks = [];
@@ -64,19 +64,25 @@ function App(props) {
   }
 
 
-  React.useEffect(() => {      
-  let savedTasks = localStorage.getItem("myTasks");
-  if (!savedTasks) {
-    localStorage.setItem("myTasks", []);
-  } else {    
-      defaultTasks = JSON.parse(savedTasks);
-      setTasks(defaultTasks);
-      (defaultTasks) ? setLoading(false) : setLoading(true);    
-  }
+  React.useEffect(() => { 
+    
+    setTimeout(() => {
+      let savedTasks = localStorage.getItem("myTasks");    
+
+      if (!savedTasks){
+        localStorage.setItem("myTasks", []);
+      } else {    
+          defaultTasks = JSON.parse(savedTasks);
+          setTasks(defaultTasks);
+          (defaultTasks) ? setLoading(false) : setLoading(true);    
+      }
+    }, 1500);
+  
+
   }, []);
 
   return (
-    <>
+<>
       <TodoCounter total={total} completed={completedTasks} />
       <TodoSearch searchValue={searchValue} setSearchvalue={setSearchvalue}/>
       <TodoList>
@@ -94,11 +100,10 @@ function App(props) {
           <ModalForm>
             <TodoForm setShowModal={setShowModal} addTask={(task) => addTask(task)}></TodoForm>
          </ModalForm>
-      )};
+      )}
    
     </>
-
-  );
+  )
 }
 
 export default App;

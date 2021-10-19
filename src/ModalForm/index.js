@@ -8,7 +8,7 @@ function ModalForm({children}) {
           {children}
         </div>,
         document.getElementById('modal-form')
-      );
+      )
 }
 
-export { ModalForm };
+export { ModalForm }
