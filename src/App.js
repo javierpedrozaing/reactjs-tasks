@@ -39,16 +39,16 @@ function App(props) {
     setTasks(newTasks);
   }
 
-  const onComplete = (taskId) => {     
+  const onComplete = (taskText) => {     
     const newTasks = [...tasks];   
-    const myTask = newTasks.find((task) => task.id === taskId);
+    const myTask = newTasks.find((task) => task.text === taskText);
     myTask.completed = true; 
     updateTasks(newTasks);    
   }
 
-  const onDelete = (taskId) => {
+  const onDelete = (taskText) => {
     const newTasks = [...tasks];
-    const indexTask = newTasks.findIndex((task) => task.id === taskId);
+    const indexTask = newTasks.findIndex((task) => task.text === taskText);
     newTasks.splice(indexTask, 1);
     updateTasks(newTasks);
   }
@@ -91,7 +91,7 @@ function App(props) {
         {(!loading && !searchedTasks.length) && <p>Crea tu primer tarea</p>}
 
         {searchedTasks.map((task) => {
-        return  <TodoItem onComplete={() => onComplete(task.id)} onDelete={() => onDelete(task.id)} key={task.text} text={task.text} completed={task.completed} />
+        return  <TodoItem onComplete={() => onComplete(task.text)} onDelete={() => onDelete(task.text)} key={task.text} text={task.text} completed={task.completed} />
         })} 
       </TodoList>
       <CreateTodoButton setShowModal={setShowModal} showModal={showModal}/>        
