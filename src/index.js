@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { ModalForm } from './ModalForm/';
 import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App saludo="Hola"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
